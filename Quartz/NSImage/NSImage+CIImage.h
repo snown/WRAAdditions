@@ -11,17 +11,6 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface NSImage (CIImage)
-+ (NSImage *)imageWithCIImage:(CIImage *)i fromRect:(CGRect)r;
-+ (NSImage *)imageWithCIImage:(CIImage *)i;
-- (NSImage *) crop:(CGRect) cropRect;
-- (NSImage *) imageFromRect: (NSRect) rect; //alternative to crop
-- (CIImage *)newCIImage;
--(CGImageRef)newCGImageRef;
-+ (NSImage *)newImageWithCGImageRef:(CGImageRef)cgImage;
-- (NSImage *)cropAlpha:(int)buffer;
++ (NSImage *)imageFromCIImage:(CIImage *)ciImage;
 @end
 
-@interface NSBitmapImageRep (CIImage)
-+ (NSBitmapImageRep *)imageRepWithCIImage:(CIImage *)i fromRect:(CGRect)r;
-+ (NSBitmapImageRep *)imageRepWithCIImage:(CIImage *)i;
-@end
