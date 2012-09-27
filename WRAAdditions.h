@@ -12,3 +12,4 @@
 #import "NSCalendar+WRAAdditions.h"
 #import "NSMutableString+WRAAdditions.h"
 #import "NSString+WRAAdditions.h"
+#import "NSImage+WRAAdditions.h"
