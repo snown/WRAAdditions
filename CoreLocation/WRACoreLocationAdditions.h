@@ -1,5 +1,5 @@
 //
-//  NSObject_WRACoreLocationAdditions.h
+//  WRACoreLocationAdditions.h
 //  SubMod
 //
 //  Created by Logan Holmes on 9/27/12.
