@@ -7,19 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#include "TargetConditionals.h"
 
 #import "NSArray+WRAAdditions.h"
 #import "NSCalendar+WRAAdditions.h"
 #import "NSMutableString+WRAAdditions.h"
 #import "NSString+WRAAdditions.h"
 
-#if TARGET_OS_MAC
+#ifdef __MAC_OS_X_VERSION_MIN_REQUIRED
 
 #import "NSImage+WRAAdditions.h"
 
 #endif
 
-#if TARGET_OS_IPHONE
+#ifdef __IPHONE_OS_VERSION_MIN_REQUIRED
 
 
 
