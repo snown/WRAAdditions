@@ -13,6 +13,7 @@
 #import "NSCalendar+WRAAdditions.h"
 #import "NSMutableString+WRAAdditions.h"
 #import "NSString+WRAAdditions.h"
+#import "NSNumber+WRAAdditions.h"
 
 #ifdef __MAC_OS_X_VERSION_MIN_REQUIRED
 
