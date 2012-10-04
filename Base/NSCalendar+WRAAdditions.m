@@ -11,13 +11,17 @@
 @implementation NSCalendar (WRAAdditions)
 
 - (NSInteger)lastDayOfMonth:(NSInteger)aMonth year:(NSInteger)aYear {
-	NSDateComponents *testComponents = [[NSDateComponents alloc] init];
-	[testComponents setYear:aYear];
-	[testComponents setMonth:aMonth];
-	[testComponents setDay:1];
-	
-	NSRange monthRange = [self rangeOfUnit:NSDayCalendarUnit inUnit:NSMonthCalendarUnit forDate:[self dateFromComponents:testComponents]];
-	
+	NSRange monthRange = [self rangeOfDaysInMonth:aMonth year:aYear];
 	return monthRange.length;
 }
+
+- (NSRange)rangeOfDaysInMonth:(NSInteger)aMonth year:(NSInteger)aYear {
+	NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+	[dateComponents setYear:aYear];
+	[dateComponents setMonth:aMonth];
+	[dateComponents setDay:1];
+	
+	return [self rangeOfUnit:NSDayCalendarUnit inUnit:NSMonthCalendarUnit forDate:[self dateFromComponents:dateComponents]];
+}
+
 @end

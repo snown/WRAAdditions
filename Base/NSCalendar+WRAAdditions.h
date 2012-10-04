@@ -11,5 +11,6 @@
 @interface NSCalendar (WRAAdditions)
 
 - (NSInteger)lastDayOfMonth:(NSInteger)aMonth year:(NSInteger)aYear;
+- (NSRange)rangeOfDaysInMonth:(NSInteger)aMonth year:(NSInteger)aYear;
 
 @end
