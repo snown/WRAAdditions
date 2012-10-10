@@ -10,6 +10,7 @@
 #include "TargetConditionals.h"
 
 #import "NSArray+WRAAdditions.h"
+#import "NSDate+WRAAdditions.h"
 #import "NSCalendar+WRAAdditions.h"
 #import "NSDateComponents+WRAAdditions.h"
 #import "NSMutableString+WRAAdditions.h"
