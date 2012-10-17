@@ -19,12 +19,18 @@
 		imageViewFrame = self.bounds;
 	}
 	
-	NSRect drawingRect = [self.cell drawingRectForBounds:imageViewFrame];
-	NSRect imageRect = drawingRect;
+	// Determine max possible rect for the image in the cell
+	//		It is my understanding that the "drawingRect" is the area where the cell can draw,
+	//		and the imageRect may be some sub-rect of the drawing rect if the cell supports a title or other objects
+	NSRect cellDrawingRect = [self.cell drawingRectForBounds:imageViewFrame];
+	NSRect cellImageRect = [self.cell imageRectForBounds:cellDrawingRect];
+	
+	// Set the base size and origin for the imageRect
+	NSRect imageRect = cellImageRect;
 	imageRect.size = [self.image size];
 	
+	// Calculate ratio of the image, and determine which dimentsion is bigger
 	double imageRatio = (imageRect.size.width / imageRect.size.height);
-	
 	BOOL imageWidthLargerThanHeight;
 	if (imageRatio >= 0) {
 		imageWidthLargerThanHeight = YES;
@@ -32,58 +38,60 @@
 		imageWidthLargerThanHeight = NO;
 	}
 	
+	// Perform rect adjustments based on imageScaling, and the size of the image's dimentions
 	NSUInteger scaling = [self imageScaling];
-	
 	if (scaling == NSImageScaleProportionallyDown) {
 		if (imageWidthLargerThanHeight) {
-			if (imageRect.size.width > drawingRect.size.width) {
-				imageRect.size.width = drawingRect.size.width;
+			if (imageRect.size.width > cellImageRect.size.width) {
+				imageRect.size.width = cellImageRect.size.width;
 				imageRect.size.height = imageRect.size.width / imageRatio;
 			}
 			
-			if (imageRect.size.height > drawingRect.size.height) {
-				imageRect.size.height = drawingRect.size.height;
+			if (imageRect.size.height > cellImageRect.size.height) {
+				imageRect.size.height = cellImageRect.size.height;
 				imageRect.size.width = imageRect.size.height * imageRatio;
 			}
 		} else {
-			if (imageRect.size.height > drawingRect.size.height) {
-				imageRect.size.height = drawingRect.size.height;
+			if (imageRect.size.height > cellImageRect.size.height) {
+				imageRect.size.height = cellImageRect.size.height;
 				imageRect.size.width = imageRect.size.height * imageRatio;
 			}
 			
-			if (imageRect.size.width > drawingRect.size.width) {
-				imageRect.size.width = drawingRect.size.width;
+			if (imageRect.size.width > cellImageRect.size.width) {
+				imageRect.size.width = cellImageRect.size.width;
 				imageRect.size.height = imageRect.size.width / imageRatio;
 			}
 		}
 	} else if (scaling == NSImageScaleProportionallyUpOrDown) {
 		if (imageWidthLargerThanHeight) {
-			if (imageRect.size.width != drawingRect.size.width) {
-				imageRect.size.width = drawingRect.size.width;
+			if (imageRect.size.width != cellImageRect.size.width) {
+				imageRect.size.width = cellImageRect.size.width;
 				imageRect.size.height = imageRect.size.width / imageRatio;
 			}
 			
-			if (imageRect.size.height > drawingRect.size.height) {
-				imageRect.size.height = drawingRect.size.height;
+			if (imageRect.size.height > cellImageRect.size.height) {
+				imageRect.size.height = cellImageRect.size.height;
 				imageRect.size.width = imageRect.size.height * imageRatio;
 			}
 		} else {
-			if (imageRect.size.height != drawingRect.size.height) {
-				imageRect.size.height = drawingRect.size.height;
+			if (imageRect.size.height != cellImageRect.size.height) {
+				imageRect.size.height = cellImageRect.size.height;
 				imageRect.size.width = imageRect.size.height * imageRatio;
 			}
 			
-			if (imageRect.size.width > drawingRect.size.width) {
-				imageRect.size.width = drawingRect.size.width;
+			if (imageRect.size.width > cellImageRect.size.width) {
+				imageRect.size.width = cellImageRect.size.width;
 				imageRect.size.height = imageRect.size.width / imageRatio;
 			}
 		}
 	} else if (scaling == NSImageScaleAxesIndependently) {
-		imageRect.size = drawingRect.size;
+		imageRect.size = cellImageRect.size;
 	}
+	// NSImageScaleNone keeps the size the same, so no adjustment is neccesary
 	
-	imageRect.origin.x += (drawingRect.size.width - imageRect.size.width) / 2;
-	imageRect.origin.y += (drawingRect.size.height - imageRect.size.height) / 2;
+	// Center the image in the drawing frame
+	imageRect.origin.x += (cellImageRect.size.width - imageRect.size.width) / 2;
+	imageRect.origin.y += (cellImageRect.size.height - imageRect.size.height) / 2;
 	
 	return imageRect;
 }
