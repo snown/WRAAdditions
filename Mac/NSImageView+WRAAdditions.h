@@ -10,4 +10,6 @@
 
 @interface NSImageView (WRAAdditions)
 
+- (NSRect)imageFrameParentContext:(BOOL)parentContext;
+
 @end
