@@ -22,6 +22,7 @@
 #import "NSImageView+WRAAdditions.h"
 #import "NSImage+WRAAdditions.h"
 #import "NSEvent+WRAAditions.h"
+#import "NSBezierPath+WRAAddidtions.h"
 
 #endif
 
