@@ -96,4 +96,28 @@
 	return imageRect;
 }
 
+- (NSPoint)convertImagePointToView:(NSPoint)aPoint {
+	NSRect imageRect = [self imageFrameParentContext:NO];
+	NSRect viewRect = self.bounds;
+	
+	NSPoint newPoint = aPoint;
+	
+	newPoint.x += viewRect.origin.x - imageRect.origin.x;
+	newPoint.y += viewRect.origin.y - imageRect.origin.y;
+	
+	return newPoint;
+}
+
+- (NSPoint)convertViewPointToImage:(NSPoint)aPoint {
+	NSRect imageRect = [self imageFrameParentContext:NO];
+	NSRect viewRect = self.bounds;
+	
+	NSPoint newPoint = aPoint;
+	
+	newPoint.x -= viewRect.origin.x - imageRect.origin.x;
+	newPoint.y -= viewRect.origin.y - imageRect.origin.y;
+	
+	return newPoint;
+}
+
 @end

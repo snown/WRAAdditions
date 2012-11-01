@@ -11,5 +11,7 @@
 @interface NSImageView (WRAAdditions)
 
 - (NSRect)imageFrameParentContext:(BOOL)parentContext;
+- (NSPoint)convertImagePointToView:(NSPoint)aPoint;
+- (NSPoint)convertViewPointToImage:(NSPoint)aPoint;
 
 @end
