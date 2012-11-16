@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+enum {
+	WRADateCompareSame = NSOrderedSame,
+	WRADateCompareEarlier = NSOrderedAscending,
+	WRADateCompareLater = NSOrderedDescending
+};
+
 @interface NSDate (WRAAdditions)
 
 - (NSDateComponents *)components:(NSCalendarUnit)calendarUnits;
