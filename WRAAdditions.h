@@ -19,7 +19,10 @@
 
 #ifdef __MAC_OS_X_VERSION_MIN_REQUIRED
 
+#import "NSImageView+WRAAdditions.h"
 #import "NSImage+WRAAdditions.h"
+#import "NSEvent+WRAAditions.h"
+#import "NSBezierPath+WRAAddidtions.h"
 
 #endif
 
