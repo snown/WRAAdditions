@@ -10,4 +10,7 @@
 
 @interface MKMapView (WRAAdditions)
 
+- (MKMapRect)rectThatFitsAnnotations:(NSArray *)someAnnotations withLocation:(CLLocation *)aLocation centered:(BOOL)centered;
+- (MKMapRect)rectThatFitsAnnotations:(NSArray *)someAnnotations;
+
 @end
