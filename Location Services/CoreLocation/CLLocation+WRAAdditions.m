@@ -10,4 +10,8 @@
 
 @implementation CLLocation (WRAAdditions)
 
++ (id)locationWithCoordinate:(CLLocationCoordinate2D)aCoordinate {
+	return [(CLLocation *)[self alloc] initWithLatitude:aCoordinate.latitude longitude:aCoordinate.longitude];
+}
+
 @end

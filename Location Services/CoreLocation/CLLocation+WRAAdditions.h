@@ -10,4 +10,6 @@
 
 @interface CLLocation (WRAAdditions)
 
++ (id)locationWithCoordinate:(CLLocationCoordinate2D)aCoordinate;
+
 @end
