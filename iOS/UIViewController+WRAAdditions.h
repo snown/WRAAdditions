@@ -1,6 +1,5 @@
 //
 //  UIViewController+WRAAdditions.h
-//  GeoPush
 //
 //  Created by Logan Holmes on 10/8/12.
 //  Copyright (c) 2012 WellRedApps. All rights reserved.

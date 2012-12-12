@@ -29,5 +29,6 @@
 #ifdef __IPHONE_OS_VERSION_MIN_REQUIRED
 
 #import "UIViewController+WRAAdditions.h"
+#import "UITableViewCell+WRAAdditions.h"
 
 #endif
