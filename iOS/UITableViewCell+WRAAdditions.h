@@ -9,4 +9,6 @@
 
 @interface UITableViewCell (WRAAdditions)
 
++ (id)cellFromNibNamed:(NSString *)nibName owner:(id)owner;
+
 @end
