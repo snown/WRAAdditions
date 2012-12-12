@@ -31,4 +31,7 @@
 #import "UIViewController+WRAAdditions.h"
 #import "UITableViewCell+WRAAdditions.h"
 
+// Requires CoreGraphics Framework
+#import "UIImage+WRAAdditions.h"
+
 #endif
