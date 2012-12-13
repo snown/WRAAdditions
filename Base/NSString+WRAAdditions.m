@@ -14,7 +14,7 @@
 	return [NSNumber numberWithInteger:[self integerValue]];
 }
 
-- (NSInteger)unsignedIntegerValue {
+- (NSUInteger)unsignedIntegerValue {
 	NSNumber *aNumber = [self integerNumberValue];
 	return [aNumber unsignedIntegerValue];
 }

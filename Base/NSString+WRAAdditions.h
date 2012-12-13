@@ -11,6 +11,6 @@
 @interface NSString (WRAAdditions)
 
 - (NSNumber *)integerNumberValue;
-- (NSInteger)unsignedIntegerValue;
+- (NSUInteger)unsignedIntegerValue;
 
 @end
