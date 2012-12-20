@@ -9,7 +9,7 @@
 
 @implementation UIImage (WRAAdditions)
 
-- (UIImage *)imageByTintingWithColor:(UIColor *)tintColor onDark:(BOOL)dark {
+- (UIImage *)imageByTintingWithColor:(UIColor *)tintColor blendMode:(CGBlendMode)blendMode {
 	// This code is thanks to "fabb" on StackOverflow - http://stackoverflow.com/a/7377827/327471
 	
 	// Prepare UIImage
@@ -31,11 +31,7 @@
 	CGContextDrawImage(context, rect, self.CGImage);
 	
 	// tint image (loosing alpha) - the luminosity of the original image is preserved
-	if (dark) {
-		CGContextSetBlendMode(context, kCGBlendModeColor);
-	} else {
-		CGContextSetBlendMode(context, kCGBlendModeMultiply);
-	}
+	CGContextSetBlendMode(context, blendMode);
 	[tintColor setFill];
 	CGContextFillRect(context, rect);
 	
@@ -48,6 +44,17 @@
 	UIGraphicsEndImageContext();
 	
 	return tintedImage;
+}
+
+- (UIImage *)imageByTintingWithColor:(UIColor *)tintColor onDark:(BOOL)dark {
+	CGBlendMode blendMode;
+	if (dark) {
+		blendMode = kCGBlendModeColor;
+	} else {
+		blendMode = kCGBlendModeMultiply;
+	}
+	
+	return [self imageByTintingWithColor:tintColor blendMode:blendMode];
 }
 
 @end

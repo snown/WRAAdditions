@@ -10,5 +10,6 @@
 @interface UIImage (WRAAdditions)
 
 - (UIImage *)imageByTintingWithColor:(UIColor *)tintColor onDark:(BOOL)dark;
+- (UIImage *)imageByTintingWithColor:(UIColor *)tintColor blendMode:(CGBlendMode)blendMode;
 
 @end
