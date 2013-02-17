@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+NSString *NSStringFromBOOL(BOOL value);
+
 @interface NSString (WRAAdditions)
 
 - (NSNumber *)integerNumberValue;

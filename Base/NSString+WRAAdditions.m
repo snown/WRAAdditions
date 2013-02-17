@@ -8,6 +8,14 @@
 
 #import "NSString+WRAAdditions.h"
 
+NSString *NSStringFromBOOL(BOOL value) {
+	if (value) {
+		return @"YES";
+	} else {
+		return @"NO";
+	}
+}
+
 @implementation NSString (WRAAdditions)
 
 - (NSNumber *)integerNumberValue {
