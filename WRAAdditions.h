@@ -16,6 +16,7 @@
 #import "NSMutableString+WRAAdditions.h"
 #import "NSString+WRAAdditions.h"
 #import "NSNumber+WRAAdditions.h"
+#import "NSSet+WRAAdditions.h"
 
 #ifdef __MAC_OS_X_VERSION_MIN_REQUIRED
 
