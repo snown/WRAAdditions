@@ -14,7 +14,7 @@
 	NSMutableSet *newSet = [NSMutableSet set];
 	for (id object in self) {
 		if ([object isKindOfClass:[NSSet class]]) {
-			[newSet unionSet:[self collapsedSet]];
+			[newSet unionSet:[object collapsedSet]];
 		} else {
 			[newSet unionSet:self];
 		}
