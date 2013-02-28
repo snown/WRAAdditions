@@ -1,6 +1,5 @@
 //
 //  NSArray+WRAAdditions.m
-//  MCE2012
 //
 //  Created by Logan Holmes on 9/18/12.
 //  Copyright (c) 2012 WellRedApps. All rights reserved.
@@ -18,6 +17,38 @@
 	}
 	
 	return anObject;
+}
+
+- (NSArray *)collapsedArrayUnique:(BOOL)unique {
+	id newCollection;
+	
+	if (unique) {
+		newCollection = [NSMutableOrderedSet orderedSet];
+	} else {
+		newCollection = [NSMutableArray array];
+	}
+	
+	for (id object in self) {
+		if ([object isKindOfClass:[NSArray class]]) {
+			if (unique) {
+				[(NSMutableOrderedSet *)newCollection unionOrderedSet:[NSOrderedSet orderedSetWithArray:[(NSArray *)object collapsedArrayUnique:unique]]];
+			} else {
+				[(NSMutableArray *)newCollection addObjectsFromArray:[(NSArray *)object collapsedArrayUnique:unique]];
+			}
+		} else {
+			if (unique) {
+				[(NSMutableOrderedSet *)newCollection unionOrderedSet:[NSOrderedSet orderedSetWithArray:self]];
+			} else {
+				[(NSMutableArray *)newCollection addObjectsFromArray:self];
+			}
+		}
+	}
+	
+	if (unique) {
+		newCollection = [(NSMutableOrderedSet *)newCollection array];
+	}
+	
+	return newCollection;
 }
 
 @end
