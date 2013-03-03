@@ -54,4 +54,11 @@
 	return [self rectThatFitsAnnotations:someAnnotations withLocation:nil centered:NO];
 }
 
+- (MKCoordinateRegion)coordinateRegionThatFitsAnnotations:(NSArray *)someAnnotations andLocation:(CLLocation *)aLocation withPadding:(double)padding {
+	MKMapRect rect = [self rectThatFitsAnnotations:someAnnotations withLocation:aLocation centered:NO];
+	rect = MKMapRectInset(rect, (padding * -1), (padding * -1));
+	
+	return MKCoordinateRegionForMapRect(rect);
+}
+
 @end
