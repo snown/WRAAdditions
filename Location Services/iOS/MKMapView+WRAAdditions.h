@@ -12,5 +12,5 @@
 
 - (MKMapRect)rectThatFitsAnnotations:(NSArray *)someAnnotations withLocation:(CLLocation *)aLocation centered:(BOOL)centered;
 - (MKMapRect)rectThatFitsAnnotations:(NSArray *)someAnnotations;
-- (MKCoordinateRegion)coordinateRegionThatFitsAnnotations:(NSArray *)someAnnotations andLocation:(CLLocation *)aLocation withPadding:(double)padding;
+- (MKCoordinateRegion)coordinateRegionThatFitsAnnotations:(NSArray *)someAnnotations andLocation:(CLLocation *)aLocation withSpanPadding:(double)padding;
 @end
