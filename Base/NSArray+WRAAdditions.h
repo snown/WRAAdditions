@@ -13,4 +13,6 @@
 
 - (NSArray *)collapsedArrayUnique:(BOOL)unique;
 
+- (id)firstObject;
+
 @end

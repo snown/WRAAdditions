@@ -51,4 +51,13 @@
 	return newCollection;
 }
 
+- (id)firstObject {
+	id result = nil;
+	if ([self count] > 0) {
+		result = [self objectAtIndex:0];
+	}
+	
+	return result;
+}
+
 @end
