@@ -12,4 +12,6 @@
 
 - (NSString *)boolString;
 
+- (void)roundToNearestFraction:(double)decimalPoint;
+
 @end
