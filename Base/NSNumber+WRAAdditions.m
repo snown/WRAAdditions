@@ -18,4 +18,21 @@
 	}
 }
 
+- (NSNumber *)numberByRoundingToNearestFraction:(double)decimalPoint {
+	if (decimalPoint >= 1) {
+		double major = floor(decimalPoint);
+		decimalPoint -= major;
+	}
+	if (decimalPoint < 0) {
+		decimalPoint = fabs(decimalPoint);
+	}
+	
+	double myself = [self doubleValue];
+	myself = myself * (1/decimalPoint);
+	myself += decimalPoint;
+	myself = floor(myself) * decimalPoint;
+	
+	return @(myself);
+}
+
 @end
