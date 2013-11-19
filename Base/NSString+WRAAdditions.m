@@ -27,4 +27,12 @@ NSString *NSStringFromBOOL(BOOL value) {
 	return [aNumber unsignedIntegerValue];
 }
 
+- (BOOL)containsString:(NSString *)subString {
+	if ([self rangeOfString:subString].location != NSNotFound) {
+		return YES;
+	} else {
+		return NO;
+	}
+}
+
 @end

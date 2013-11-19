@@ -15,4 +15,6 @@ NSString *NSStringFromBOOL(BOOL value);
 - (NSNumber *)integerNumberValue;
 - (NSUInteger)unsignedIntegerValue;
 
+- (BOOL)containsString:(NSString *)subString;
+
 @end
